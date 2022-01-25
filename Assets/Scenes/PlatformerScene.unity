@@ -123,6 +123,31 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &157776215 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8141691100688143265, guid: 1a71d025acab1664fb547ab45e96d587, type: 3}
+  m_PrefabInstance: {fileID: 1885076766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &157776216 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 8141691100688143276, guid: 1a71d025acab1664fb547ab45e96d587, type: 3}
+  m_PrefabInstance: {fileID: 1885076766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &157776221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157776215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7039175a4438de24399ba609e1c2e7c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRigidbody: {fileID: 157776216}
+  moveSpeed: 5
+  jumpForce: 500
 --- !u!1001 &684882977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -540,17 +565,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8141691100688143276, guid: 1a71d025acab1664fb547ab45e96d587, type: 3}
+      propertyPath: m_Mass
+      value: 9999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 8141691100688143276, guid: 1a71d025acab1664fb547ab45e96d587, type: 3}
+      propertyPath: m_Constraints
+      value: 120
+      objectReference: {fileID: 0}
     - target: {fileID: 8141691100688143277, guid: 1a71d025acab1664fb547ab45e96d587, type: 3}
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8141691100688143277, guid: 1a71d025acab1664fb547ab45e96d587, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28.76
+      value: -24.33
       objectReference: {fileID: 0}
     - target: {fileID: 8141691100688143277, guid: 1a71d025acab1664fb547ab45e96d587, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.83
+      value: 10.03
       objectReference: {fileID: 0}
     - target: {fileID: 8141691100688143277, guid: 1a71d025acab1664fb547ab45e96d587, type: 3}
       propertyPath: m_LocalPosition.z
