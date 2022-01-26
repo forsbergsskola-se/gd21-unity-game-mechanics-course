@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 8141691100688143267}
   - component: {fileID: 8141691100688143264}
   - component: {fileID: 8141691100688143276}
-  - component: {fileID: 157776221}
+  - component: {fileID: 157776226}
+  - component: {fileID: 157776227}
+  - component: {fileID: 157776228}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -116,7 +118,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 120
   m_CollisionDetection: 0
---- !u!114 &157776221
+--- !u!114 &157776226
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -125,11 +127,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 8141691100688143265}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7039175a4438de24399ba609e1c2e7c1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1df2a09ef8ba16b4aacb78c5b43d75e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 8141691100688143276}
-  moveSpeed: 5
+  myGroundChecker: {fileID: 157776228}
   jumpForce: 500
+--- !u!114 &157776227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8141691100688143265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74f591684258d44c8ac5630ee64cef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRigidbody: {fileID: 8141691100688143276}
+  walkSpeed: 5
+--- !u!114 &157776228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8141691100688143265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf3809d3127bf348a8ceeca3b87c233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   groundCheckDistance: 0.6
   groundCheckSphereRadius: 0.45
+  isGrounded: 0

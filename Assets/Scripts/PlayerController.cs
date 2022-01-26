@@ -13,6 +13,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //We will create separate scripts for these game mechanics, but here's an example of putting the code in different methods.
+        HandleMovement();
+        HandleJump();
+    }
+
+    private void HandleMovement()
+    {
         //Get move input
         var moveInput = Input.GetAxis("Horizontal");
         //Print move input in the console
@@ -20,7 +27,10 @@ public class PlayerController : MonoBehaviour
 
         //Apply moveSpeed to rigidbody
         myRigidbody.velocity = new Vector3(moveInput * moveSpeed, myRigidbody.velocity.y, 0);
+    }
 
+    private void HandleJump()
+    {
         //Get jump input
         var jumpInput = Input.GetKeyDown(KeyCode.Space);
 
