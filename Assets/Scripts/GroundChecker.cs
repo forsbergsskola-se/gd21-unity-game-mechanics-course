@@ -5,7 +5,6 @@ using UnityEngine;
 public class GroundChecker : MonoBehaviour
 {
     public float groundCheckDistance = 0.6f;
-
     public float groundCheckSphereRadius = 0.45f;
     public bool isGrounded;
 

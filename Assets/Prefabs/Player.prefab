@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 157776226}
   - component: {fileID: 157776227}
   - component: {fileID: 157776228}
+  - component: {fileID: 157776229}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -125,7 +126,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8141691100688143265}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1df2a09ef8ba16b4aacb78c5b43d75e4, type: 3}
   m_Name: 
@@ -162,3 +163,20 @@ MonoBehaviour:
   groundCheckDistance: 0.6
   groundCheckSphereRadius: 0.45
   isGrounded: 0
+--- !u!114 &157776229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8141691100688143265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2865e8026b3f8d040b8a98efd3df3102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRigidbody: {fileID: 8141691100688143276}
+  myGroundChecker: {fileID: 157776228}
+  minimumJumpForce: 100
+  maximumJumpForce: 1000
+  jumpChargeTime: 1
