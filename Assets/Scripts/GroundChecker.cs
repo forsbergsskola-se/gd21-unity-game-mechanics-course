@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,4 +29,9 @@ public class GroundChecker : MonoBehaviour
         //Draw a ray in the editor, only for visualization.
         // Debug.DrawRay(transform.position, Vector3.down * groundCheckDistance, Color.cyan);
     }
+
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.DrawSphere(transform.position + Vector3.down * groundCheckDistance, groundCheckSphereRadius);
+    // }
 }

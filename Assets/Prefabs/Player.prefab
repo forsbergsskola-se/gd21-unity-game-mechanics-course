@@ -160,8 +160,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cf3809d3127bf348a8ceeca3b87c233, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundCheckDistance: 0.6
-  groundCheckSphereRadius: 0.45
+  groundCheckDistance: 0.55
+  groundCheckSphereRadius: 0.5
   isGrounded: 0
 --- !u!114 &157776229
 MonoBehaviour:
