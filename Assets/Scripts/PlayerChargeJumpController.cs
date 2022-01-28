@@ -1,16 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerChargeJumpController : MonoBehaviour
 {
     public Rigidbody myRigidbody;
     public GroundChecker myGroundChecker;
+    public PlayerInputController playerInputController;
     public float minimumJumpForce = 100f;
     public float maximumJumpForce = 1000f;
     public float jumpChargeTime = 1f;
 
-    private float chargeProgress = 0f;
+    private float chargeProgress;
 
     // Update is called once per frame
     void Update()
@@ -20,9 +19,8 @@ public class PlayerChargeJumpController : MonoBehaviour
 
     private void HandleJump()
     {
-        //Get jump input
-        var chargeInput = Input.GetKey(KeyCode.Space);
-        if (chargeInput == true)
+        //If we're holding the jump button: charge a jump
+        if (playerInputController.jumpInput == true)
         {
             //Increase charge progress, dividing Time.deltaTime by jumpChargeTime let's us control how many seconds it takes to charge a full jump.
             chargeProgress += Time.deltaTime / jumpChargeTime;
@@ -30,7 +28,7 @@ public class PlayerChargeJumpController : MonoBehaviour
         }
 
         //If we released the jump button: prepare to jump
-        if (Input.GetKeyUp(KeyCode.Space) == true)
+        if (playerInputController.jumpInputUp == true)
         {
             //Calculate jumpForce before resetting chargeProgress
             //Linear interpolation (lerp) between minimumJumpForce and maximumJumpForce. chargeProgress controls where in-between the two values we are.
