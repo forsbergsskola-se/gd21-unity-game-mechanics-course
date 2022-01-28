@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PlayerInputController : MonoBehaviour
 {
-    public float walkInput;
-    public bool jumpInput;
-    public bool jumpInputDown;
-    public bool jumpInputUp;
+    public float WalkInput { get; private set; }
+    public bool JumpInput { get; private set; }
+    public bool JumpInputDown { get; private set; }
+    public bool JumpInputUp { get; private set; }
 
     private void Update()
     {
@@ -14,10 +14,10 @@ public class PlayerInputController : MonoBehaviour
 
     private void GetInput()
     {
-        walkInput = Input.GetAxis("Horizontal");
+        WalkInput = Input.GetAxis("Horizontal");
 
-        jumpInput = Input.GetKey(KeyCode.Space);
-        jumpInputDown = Input.GetKeyDown(KeyCode.Space);
-        jumpInputUp = Input.GetKeyUp(KeyCode.Space);
+        JumpInput = Input.GetKey(KeyCode.Space);
+        JumpInputDown = Input.GetKeyDown(KeyCode.Space);
+        JumpInputUp = Input.GetKeyUp(KeyCode.Space);
     }
 }

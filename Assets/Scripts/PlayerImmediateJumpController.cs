@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class PlayerImmediateJumpController : MonoBehaviour
 {
-    public Rigidbody myRigidbody;
-    public GroundChecker myGroundChecker;
-    public PlayerInputController playerInputController;
-    public float jumpForce = 500f;
+    [SerializeField] private Rigidbody myRigidbody;
+    [SerializeField] private GroundChecker myGroundChecker;
+    [SerializeField] private PlayerInputController playerInputController;
+    [SerializeField] private float jumpForce = 500f;
 
     // Update is called once per frame
     void Update()
@@ -16,7 +16,7 @@ public class PlayerImmediateJumpController : MonoBehaviour
     private void HandleJump()
     {
         //If we pressed the jump button: then jump
-        if (playerInputController.jumpInputDown == true && myGroundChecker.isGrounded == true)
+        if (playerInputController.JumpInputDown == true && myGroundChecker.IsGrounded == true)
         {
             // Debug.Log("Jump");
             myRigidbody.AddForce(0, jumpForce, 0);

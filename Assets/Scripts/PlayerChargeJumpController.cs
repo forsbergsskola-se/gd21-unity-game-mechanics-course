@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class PlayerChargeJumpController : MonoBehaviour
 {
-    public Rigidbody myRigidbody;
-    public GroundChecker myGroundChecker;
-    public PlayerInputController playerInputController;
-    public float minimumJumpForce = 100f;
-    public float maximumJumpForce = 1000f;
-    public float jumpChargeTime = 1f;
+    [SerializeField] private Rigidbody myRigidbody;
+    [SerializeField] private GroundChecker myGroundChecker;
+    [SerializeField] private PlayerInputController playerInputController;
+    [SerializeField] private float minimumJumpForce = 100f;
+    [SerializeField] private float maximumJumpForce = 1000f;
+    [SerializeField] private float jumpChargeTime = 1f;
 
     private float chargeProgress;
 
@@ -20,7 +20,7 @@ public class PlayerChargeJumpController : MonoBehaviour
     private void HandleJump()
     {
         //If we're holding the jump button: charge a jump
-        if (playerInputController.jumpInput == true)
+        if (playerInputController.JumpInput == true)
         {
             //Increase charge progress, dividing Time.deltaTime by jumpChargeTime let's us control how many seconds it takes to charge a full jump.
             chargeProgress += Time.deltaTime / jumpChargeTime;
@@ -28,7 +28,7 @@ public class PlayerChargeJumpController : MonoBehaviour
         }
 
         //If we released the jump button: prepare to jump
-        if (playerInputController.jumpInputUp == true)
+        if (playerInputController.JumpInputUp == true)
         {
             //Calculate jumpForce before resetting chargeProgress
             //Linear interpolation (lerp) between minimumJumpForce and maximumJumpForce. chargeProgress controls where in-between the two values we are.
@@ -37,7 +37,7 @@ public class PlayerChargeJumpController : MonoBehaviour
             chargeProgress = 0f;
 
             //If we are grounded: jump
-            if (myGroundChecker.isGrounded == true)
+            if (myGroundChecker.IsGrounded == true)
             {
                 myRigidbody.AddForce(0, jumpForce, 0);
             }

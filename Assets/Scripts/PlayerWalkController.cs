@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class PlayerWalkController : MonoBehaviour
 {
-    public Rigidbody myRigidbody;
-    public PlayerInputController playerInputController;
-    public float walkSpeed = 5f;
+    [SerializeField] private Rigidbody myRigidbody;
+    [SerializeField] private PlayerInputController playerInputController;
+    [SerializeField] private float walkSpeed = 5f;
 
     // Update is called once per frame
     void Update()
@@ -15,6 +15,6 @@ public class PlayerWalkController : MonoBehaviour
     private void HandleWalking()
     {
         //Apply moveSpeed to rigidbody
-        myRigidbody.velocity = new Vector3(playerInputController.walkInput * walkSpeed, myRigidbody.velocity.y, 0);
+        myRigidbody.velocity = new Vector3(playerInputController.WalkInput * walkSpeed, myRigidbody.velocity.y, 0);
     }
 }
