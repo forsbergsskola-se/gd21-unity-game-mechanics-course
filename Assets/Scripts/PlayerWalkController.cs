@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerWalkController : MonoBehaviour
 {
     [SerializeField] private Rigidbody myRigidbody;
-    [SerializeField] private PlayerInputController playerInputController;
+    [SerializeField] private CommandContainer commandContainer;
     [SerializeField] private float walkSpeed = 5f;
 
     // Update is called once per frame
@@ -15,6 +15,6 @@ public class PlayerWalkController : MonoBehaviour
     private void HandleWalking()
     {
         //Apply moveSpeed to rigidbody
-        myRigidbody.velocity = new Vector3(playerInputController.WalkInput * walkSpeed, myRigidbody.velocity.y, 0);
+        myRigidbody.velocity = new Vector3(commandContainer.walkCommand * walkSpeed, myRigidbody.velocity.y, 0);
     }
 }
