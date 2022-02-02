@@ -3,9 +3,43 @@ using UnityEngine;
 public class MoveTowardsPlayerAI : MonoBehaviour
 {
     [SerializeField] private CommandContainer commandContainer;
-    [SerializeField] private Transform playerTransform;
+
+    private Transform playerTransform;
+
+    private void Start()
+    {
+        //Be careful when using the different Find methods. They look through every GameObject in the scene until the find a match. This is performance intense.
+        // playerTransform = GameObject.Find("Player").transform; //This searches for a GameObject called "Player". The name must match perfectly for the GameObject to be found.
+
+        // playerTransform = GameObject.FindWithTag("Player").transform; //This searches for a GameObject with a tag called "Player". Text must match perfectly.
+
+        // playerTransform = ((PlayerIdentifier)FindObjectOfType(typeof(PlayerIdentifier))).transform; //Looks for a GameObject with the component PlayerIdentifier.
+        // playerTransform = FindObjectOfType<PlayerIdentifier>().transform; //Looks for a GameObject with the component PlayerIdentifier, but with cleaner code.
+
+        var playerIdentifier = FindObjectOfType<PlayerIdentifier>();
+        if (playerIdentifier != null) //If we found a PlayerIdentifier.
+        {
+            playerTransform = playerIdentifier.transform;
+        }
+
+        //A shorter way to only get the transform if the result of FindObjectOfType<PlayerIdentifier>() is NOT null.
+        // playerTransform = FindObjectOfType<PlayerIdentifier>()?.transform; 
+    }
 
     private void Update()
+    {
+        //If we have a reference to the playerTransform: move towards. If not: stop moving.
+        if (playerTransform != null)
+        {
+            MoveTowardsPlayer();
+        }
+        else
+        {
+            Stop();
+        }
+    }
+
+    private void MoveTowardsPlayer()
     {
         //To get a direction vector to a target: {Target_Position} - {Origin_Position}
         var directionToPlayer = playerTransform.position - transform.position;
@@ -19,5 +53,10 @@ public class MoveTowardsPlayerAI : MonoBehaviour
 
         //Pass along direction to command container.
         commandContainer.walkCommand = horizontalDirection;
+    }
+
+    private void Stop()
+    {
+        commandContainer.walkCommand = 0;
     }
 }
