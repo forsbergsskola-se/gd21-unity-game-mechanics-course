@@ -4,11 +4,12 @@ public class HealthContainer : MonoBehaviour
 {
     [SerializeField] private float maxHealth = 3f;
 
-    private float currentHealth;
+    public float CurrentHealth { get; private set; } //This doesn't show up in the inspector.
+    public float MaxHealth => maxHealth; //Creates a getter property that returns the value of maxHealth.
 
     private void Start()
     {
-        currentHealth = maxHealth;
+        CurrentHealth = maxHealth;
     }
 
     // private void OnEnable()
@@ -23,7 +24,7 @@ public class HealthContainer : MonoBehaviour
 
     public void DealDamage(float damage)
     {
-        currentHealth -= damage;
+        CurrentHealth -= damage;
         CheckHealth();
     }
 
@@ -34,7 +35,7 @@ public class HealthContainer : MonoBehaviour
 
     private void CheckHealth()
     {
-        if (currentHealth <= 0)
+        if (CurrentHealth <= 0)
         {
             Die();
         }
