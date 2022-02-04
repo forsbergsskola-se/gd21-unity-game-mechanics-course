@@ -19,7 +19,7 @@ public class ReloadSceneOnPlayerDeath : MonoBehaviour
 
     private IEnumerator ReloadActiveSceneCoroutine()
     {
-        Debug.Log("Waiting to reload scene.");
+        // Debug.Log("Waiting to reload scene.");
         reloadCoroutineStarted = true;
         yield return new WaitForSeconds(sceneReloadDelay);
         ReloadActiveScene();
