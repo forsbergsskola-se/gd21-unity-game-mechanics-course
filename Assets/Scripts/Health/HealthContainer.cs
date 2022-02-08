@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class HealthContainer : MonoBehaviour
 {
+    [SerializeField] private DeathCounterSO deathCounterSo;
     [SerializeField] private float maxHealth = 3f;
 
     public float CurrentHealth { get; private set; } //This doesn't show up in the inspector.
@@ -43,6 +44,7 @@ public class HealthContainer : MonoBehaviour
 
     private void Die()
     {
+        deathCounterSo.numberOfDeaths++; //Add 1 to out number of deaths. //TODO Change to Die-event, and move this to a separate script..
         Destroy(gameObject);
         // gameObject.SetActive(false); //This disables the gameObject
     }
