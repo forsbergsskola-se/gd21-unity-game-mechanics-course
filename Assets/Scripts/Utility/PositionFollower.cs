@@ -7,6 +7,9 @@ public class PositionFollower : MonoBehaviour
 
     private void Update()
     {
-        transform.position = transformToFollow.position + positionOffset;
+        //Only follow if we have a transformToFollow.
+        //WARNING! If we forget to assign a transformToFollow, we won't get any errors/warnings telling us about it. Be careful!
+        if (transformToFollow != null)
+            transform.position = transformToFollow.position + positionOffset;
     }
 }
