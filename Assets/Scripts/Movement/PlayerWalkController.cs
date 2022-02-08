@@ -4,7 +4,9 @@ public class PlayerWalkController : MonoBehaviour
 {
     [SerializeField] private Rigidbody myRigidbody;
     [SerializeField] private CommandContainer commandContainer;
-    [SerializeField] private float walkSpeed = 5f;
+
+    [SerializeField] private WalkSpeedSO walkSpeedSo;
+    // [SerializeField] private float walkSpeed = 5f;
 
     // Update is called once per frame
     void Update()
@@ -15,6 +17,6 @@ public class PlayerWalkController : MonoBehaviour
     private void HandleWalking()
     {
         //Apply moveSpeed to rigidbody
-        myRigidbody.velocity = new Vector3(commandContainer.walkCommand * walkSpeed, myRigidbody.velocity.y, 0);
+        myRigidbody.velocity = new Vector3(commandContainer.walkCommand * walkSpeedSo.WalkSpeed, myRigidbody.velocity.y, 0);
     }
 }

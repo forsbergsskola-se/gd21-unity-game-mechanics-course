@@ -148,7 +148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myRigidbody: {fileID: 4848755569548822775}
   commandContainer: {fileID: 223143742574104425}
-  walkSpeed: 5
+  walkSpeedSo: {fileID: 11400000, guid: 4bada7666a47c424b96d63e8a4475a5e, type: 2}
 --- !u!114 &7262898956610344097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,7 +162,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commandContainer: {fileID: 223143742574104425}
-  playerTransform: {fileID: 0}
 --- !u!114 &1449264100152338243
 MonoBehaviour:
   m_ObjectHideFlags: 0
