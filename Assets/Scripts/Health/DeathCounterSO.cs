@@ -5,9 +5,9 @@ public class DeathCounterSO : ScriptableObject
 {
     public int numberOfDeaths;
 
-    private void OnEnable()
+    private void OnEnable() //This is called everytime we start the game, even if we're in a scene where nothing uses this ScriptableObject.
     {
-        Debug.Log("Reset deaths.");
+        // Debug.Log("Reset deaths.");
         numberOfDeaths = 0;
     }
 }
