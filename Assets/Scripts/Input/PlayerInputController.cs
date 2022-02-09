@@ -13,6 +13,7 @@ public class PlayerInputController : MonoBehaviour
     {
         GetInput();
         SetCommands();
+        CallEvents();
     }
 
     private void GetInput()
@@ -30,5 +31,18 @@ public class PlayerInputController : MonoBehaviour
         commandContainer.jumpCommand = JumpInput;
         commandContainer.jumpCommandDown = JumpInputDown;
         commandContainer.jumpCommandUp = JumpInputUp;
+    }
+
+    private void CallEvents()
+    {
+        //We only want to Invoke OnJumpCommandDown if something is subscribed to it, i.e. if it's NOT null.
+
+        //Null check through if statement.
+        // if (JumpInputDown && commandContainer.OnJumpCommandDown != null)
+        //     commandContainer.OnJumpCommandDown.Invoke(); //Emits a signal from the event to everyone listening to the event.
+
+        //Null check through null propagating operator. Achieves the same result as the if statement above.
+        if (JumpInputDown)
+            commandContainer.OnJumpCommandDown?.Invoke(); //Emits a signal from the event to everyone listening to the event.
     }
 }

@@ -5,9 +5,11 @@ public class DeathCounterSO : ScriptableObject
 {
     public int numberOfDeaths;
 
-    private void OnEnable() //This is called everytime we start the game, even if we're in a scene where nothing uses this ScriptableObject.
-    {
-        // Debug.Log("Reset deaths.");
-        numberOfDeaths = 0;
-    }
+    //This is called everytime we start the game, even if we're in a scene where nothing uses this ScriptableObject. Also happens on scene change.
+    //It's usually a better idea to reset your ScriptableObject data through a MonoBehaviour, as it's often easier to predict when those callbacks happen.
+    // private void OnEnable()
+    // {
+    //     Debug.Log("Reset deaths.");
+    //     numberOfDeaths = 0;
+    // }
 }

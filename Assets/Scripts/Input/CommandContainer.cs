@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class CommandContainer : MonoBehaviour
@@ -6,4 +7,6 @@ public class CommandContainer : MonoBehaviour
     public bool jumpCommand;
     public bool jumpCommandDown;
     public bool jumpCommandUp;
+
+    public Action OnJumpCommandDown;
 }
