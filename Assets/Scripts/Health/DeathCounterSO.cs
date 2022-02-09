@@ -12,4 +12,14 @@ public class DeathCounterSO : ScriptableObject
     //     Debug.Log("Reset deaths.");
     //     numberOfDeaths = 0;
     // }
+
+    public void IncreaseDeathCounterByOne()
+    {
+        numberOfDeaths++; //Add 1 to our number of deaths.
+    }
+
+    public void IncreaseDeathCounterByNumber(int numberOfNewDeaths)
+    {
+        numberOfDeaths += numberOfNewDeaths; //Add numberOfNewDeaths amount to our number of deaths.
+    }
 }

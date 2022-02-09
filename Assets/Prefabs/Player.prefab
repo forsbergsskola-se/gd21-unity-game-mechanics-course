@@ -241,3 +241,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathCounterSo: {fileID: 11400000, guid: 208029a1396bc064884f7bffc513d49c, type: 2}
   maxHealth: 3
+  onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 208029a1396bc064884f7bffc513d49c, type: 2}
+        m_TargetAssemblyTypeName: DeathCounterSO, Assembly-CSharp
+        m_MethodName: IncreaseDeathCounterByOne
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

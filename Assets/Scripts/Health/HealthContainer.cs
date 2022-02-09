@@ -1,9 +1,13 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HealthContainer : MonoBehaviour
 {
-    [SerializeField] private DeathCounterSO deathCounterSo;
     [SerializeField] private float maxHealth = 3f;
+
+    [SerializeField] private UnityEvent onDeath;
+    // [SerializeField] private UnityEvent<int> onDeath;
+    // [SerializeField] private int deathCounterIncreasePerDeath = 1;
 
     public float CurrentHealth { get; private set; } //This doesn't show up in the inspector.
     public float MaxHealth => maxHealth; //Creates a getter property that returns the value of maxHealth.
@@ -44,7 +48,8 @@ public class HealthContainer : MonoBehaviour
 
     private void Die()
     {
-        deathCounterSo.numberOfDeaths++; //Add 1 to out number of deaths. //TODO Change to Die-event, and move this to a separate script..
+        // onDeath.Invoke(deathCounterIncreasePerDeath); Passing along an int when invoking the UnityEvent allows us to use the dynamic int version of methods called through the event.
+        onDeath.Invoke();
         Destroy(gameObject);
         // gameObject.SetActive(false); //This disables the gameObject
     }
