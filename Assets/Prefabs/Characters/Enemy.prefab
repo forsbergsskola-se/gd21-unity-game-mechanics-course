@@ -17,6 +17,9 @@ GameObject:
   - component: {fileID: 8323889120917395294}
   - component: {fileID: 7262898956610344097}
   - component: {fileID: 1449264100152338243}
+  - component: {fileID: 830755945}
+  - component: {fileID: 830755944}
+  - component: {fileID: 830755946}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -175,3 +178,61 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
+--- !u!114 &830755945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848755569548822768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1df2a09ef8ba16b4aacb78c5b43d75e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myRigidbody: {fileID: 4848755569548822775}
+  myGroundChecker: {fileID: 830755944}
+  commandContainer: {fileID: 223143742574104425}
+  jumpForce: 500
+--- !u!114 &830755944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848755569548822768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cf3809d3127bf348a8ceeca3b87c233, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundCheckDistance: 0.2
+  groundCheckSphereRadius: 0.4
+--- !u!114 &830755946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4848755569548822768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6c7cc4d01e61a141a9ce7f863b1a330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEventSo: {fileID: 11400000, guid: a6bdc8eac17feca4281b8c67d78e4e21, type: 2}
+  onGameEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 223143742574104425}
+        m_TargetAssemblyTypeName: CommandContainer, Assembly-CSharp
+        m_MethodName: InvokeJumpCommandDown
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

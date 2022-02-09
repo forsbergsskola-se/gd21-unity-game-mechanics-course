@@ -9,4 +9,7 @@ public class CommandContainer : MonoBehaviour
     public bool jumpCommandUp;
 
     public Action OnJumpCommandDown;
+
+    //This method is only intended to force-invoke OnJumpCommandDown through UnityEvents. See example with enemies jump when the player dies.
+    public void InvokeJumpCommandDown() => OnJumpCommandDown?.Invoke();
 }
