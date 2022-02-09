@@ -4,26 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class ReloadSceneOnPlayerDeath : MonoBehaviour
 {
-    [SerializeField] private PlayerIdentifier playerIdentifier;
     [SerializeField] private float sceneReloadDelay = 3f;
 
-    private bool reloadCoroutineStarted;
-
-    private void Update()
+    public void StartReloadSceneCoroutine()
     {
-        if (playerIdentifier == null && reloadCoroutineStarted == false) //If the player no longer exists.
-        {
-            StartCoroutine(ReloadActiveSceneCoroutine());
-        }
+        // Debug.Log("Start scene reload coroutine.");
+        StartCoroutine(ReloadActiveSceneCoroutine());
     }
 
     private IEnumerator ReloadActiveSceneCoroutine()
     {
         // Debug.Log("Waiting to reload scene.");
-        reloadCoroutineStarted = true;
         yield return new WaitForSeconds(sceneReloadDelay);
         ReloadActiveScene();
-        // reloadCoroutineStarted = false; //Since we're reloading the entire scene when this coroutine finishes, it's not really necessary to reset the bool.
     }
 
     private static void ReloadActiveScene()
